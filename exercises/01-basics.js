@@ -13,3 +13,14 @@ function introduce(personName, personAge) {
 for (let i = 1; i <= 3; i++) {
   console.log(introduce(name, age));
 }
+
+// Conditionals
+function canVote(age) {
+  if (age >= 18) {
+    return "Eligible to vote";
+  } else {
+    return "Not eligible to vote";
+  }
+}
+
+console.log(canVote(age));
