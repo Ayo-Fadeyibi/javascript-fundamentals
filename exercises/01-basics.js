@@ -24,3 +24,20 @@ function canVote(age) {
 }
 
 console.log(canVote(age));
+
+// Strings and variables practice
+
+let firstName = "Ayo";
+let lastName = "Fadeyibi";
+let yearOfBirth = 2004;
+let currentYear = 2025;
+
+let fullName = firstName + " " + lastName;
+let age = currentYear - yearOfBirth;
+
+console.log("Full name:", fullName);
+console.log("Age:", age);
+
+// Template literals
+let introduction = `My name is ${fullName} and I am ${age} years old.`;
+console.log(introduction);
