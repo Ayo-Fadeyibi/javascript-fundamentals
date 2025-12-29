@@ -1,4 +1,7 @@
 // 14-leap-year-checker.js
+// Leap year rules:
+// - Divisible by 4
+// - Not divisible by 100 unless divisible by 400
 
 function isLeapYear(year) {
   if (year % 4 !== 0) {
