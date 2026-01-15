@@ -1,0 +1,75 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  padding: 40px 15px;
+}
+
+.container {
+  width: 420px;
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0px 6px 16px rgba(0,0,0,0.15);
+}
+
+.quote-box {
+  background: #fafafa;
+  border-left: 5px solid #137547;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 15px 0;
+}
+
+#quote-text {
+  font-size: 18px;
+  margin: 0;
+}
+
+#quote-author {
+  margin: 10px 0 0 0;
+  font-weight: bold;
+  color: #054A29;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #137547;
+  color: white;
+  font-weight: bold;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button.danger {
+  background: #e74c3c;
+}
+
+li {
+  background: #f7f7f7;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+}
+
+.remove-btn {
+  background: #ff4d4d;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
