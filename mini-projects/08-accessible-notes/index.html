@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accessible Notes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Accessible Notes 📝</h1>
+
+    <section aria-labelledby="editor-title" class="card">
+      <h2 id="editor-title">Editor</h2>
+
+      <div
+        id="editor"
+        class="editor"
+        contenteditable="true"
+        role="textbox"
+        aria-multiline="true"
+        aria-label="Note editor"
+        aria-describedby="editor-help"
+      ></div>
+
+      <p id="editor-help" class="help">
+        Tip: Type your note. Use the buttons below to save or clear.
+      </p>
+
+      <div class="buttons">
+        <button id="save-btn" aria-label="Save note">Save</button>
+        <button id="clear-btn" class="danger" aria-label="Clear editor">Clear</button>
+      </div>
+
+      <!-- aria-live region for announcements -->
+      <p id="status" class="status" aria-live="polite" aria-atomic="true"></p>
+    </section>
+
+    <section aria-labelledby="saved-title" class="card">
+      <h2 id="saved-title">Saved Notes</h2>
+      <ul id="notes-list" aria-label="Saved notes list"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
