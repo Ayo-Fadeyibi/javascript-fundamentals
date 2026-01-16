@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accessible Accordion</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Accessible Accordion 📌</h1>
+
+    <section class="card" aria-label="Frequently asked questions">
+      <button class="accordion-btn"
+        aria-expanded="false"
+        aria-controls="panel-1"
+        id="btn-1">
+        What is ARIA?
+      </button>
+      <div class="panel" id="panel-1" role="region" aria-labelledby="btn-1" hidden>
+        ARIA helps make web apps accessible by providing extra semantic information to assistive technologies.
+      </div>
+
+      <button class="accordion-btn"
+        aria-expanded="false"
+        aria-controls="panel-2"
+        id="btn-2">
+        What does contenteditable do?
+      </button>
+      <div class="panel" id="panel-2" role="region" aria-labelledby="btn-2" hidden>
+        contenteditable allows users to edit text directly inside an element, like a built-in editor.
+      </div>
+
+      <button class="accordion-btn"
+        aria-expanded="false"
+        aria-controls="panel-3"
+        id="btn-3">
+        Why should I care about accessibility?
+      </button>
+      <div class="panel" id="panel-3" role="region" aria-labelledby="btn-3" hidden>
+        Accessibility improves usability for everyone and is essential for inclusive design and many professional products.
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+vv
