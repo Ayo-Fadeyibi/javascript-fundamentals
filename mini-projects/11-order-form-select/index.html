@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Form</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Order Form 🛒</h1>
+
+    <form id="order-form">
+      <label>
+        Full Name
+        <input id="name" type="text" placeholder="Enter your name" />
+      </label>
+
+      <label>
+        Product
+        <select id="product">
+          <option value="">-- Select a product --</option>
+          <option value="Laptop">Laptop</option>
+          <option value="Keyboard">Keyboard</option>
+          <option value="Mouse">Mouse</option>
+        </select>
+      </label>
+
+      <label>
+        Quantity
+        <select id="quantity">
+          <option value="">-- Select quantity --</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </label>
+
+      <button type="submit">Submit Order</button>
+      <p id="error" class="error" aria-live="polite"></p>
+    </form>
+
+    <section class="card">
+      <h2>Order Summary</h2>
+      <p id="summary">No order yet.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
