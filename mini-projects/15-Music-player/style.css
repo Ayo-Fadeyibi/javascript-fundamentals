@@ -1,0 +1,652 @@
+  /* ===================================
+       Music Player - Atmospheric Dark Theme
+       =================================== */
+
+    @import url('https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+    :root {
+      /* Color Palette - Deep Space Theme */
+      --color-void: #0a0e14;
+      --color-deep: #131720;
+      --color-surface: #1a1f2e;
+      --color-elevated: #242938;
+      --color-border: #2d3548;
+      
+      /* Accent Colors - Electric Cyan & Neon Purple */
+      --color-primary: #00ffff;
+      --color-primary-glow: rgba(0, 255, 255, 0.3);
+      --color-secondary: #b759ff;
+      --color-secondary-glow: rgba(183, 89, 255, 0.3);
+      
+      /* Text Colors */
+      --color-text-primary: #e8eaed;
+      --color-text-secondary: #9ba3b4;
+      --color-text-dim: #626a7a;
+      
+      /* Spacing & Sizing */
+      --spacing-xs: 0.5rem;
+      --spacing-sm: 1rem;
+      --spacing-md: 1.5rem;
+      --spacing-lg: 2rem;
+      --spacing-xl: 3rem;
+      
+      /* Border Radius */
+      --radius-sm: 0.5rem;
+      --radius-md: 1rem;
+      --radius-lg: 1.5rem;
+      --radius-full: 9999px;
+      
+      /* Shadows */
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+      --shadow-glow: 0 0 24px var(--color-primary-glow);
+      
+      /* Transitions */
+      --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ===================================
+       Base Styles
+       =================================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Space Mono', monospace;
+      background: linear-gradient(135deg, var(--color-void) 0%, var(--color-deep) 100%);
+      color: var(--color-text-primary);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--spacing-md);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 30%, var(--color-primary-glow) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, var(--color-secondary-glow) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* ===================================
+       Container & Layout
+       =================================== */
+
+    .container {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-lg);
+      max-width: 1200px;
+      width: 100%;
+      animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        grid-template-columns: 400px 1fr;
+      }
+    }
+
+    /* ===================================
+       Player Section
+       =================================== */
+
+    .player {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      backdrop-filter: blur(20px);
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .player:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg), 0 0 40px var(--color-primary-glow);
+    }
+
+    .player-bar {
+      background: linear-gradient(135deg, var(--color-elevated) 0%, var(--color-surface) 100%);
+      padding: var(--spacing-md);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--color-primary);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .player-bar::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+      animation: shimmer 3s linear infinite;
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .fcc-title {
+      font-family: 'Clash Display', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin: 0;
+    }
+
+    .parallel-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .parallel-lines div {
+      width: 24px;
+      height: 2px;
+      background: var(--color-primary);
+      border-radius: 2px;
+      transition: all var(--transition-base);
+    }
+
+    .player-bar:hover .parallel-lines div {
+      background: var(--color-secondary);
+      transform: scaleX(1.2);
+    }
+
+    /* ===================================
+       Player Content
+       =================================== */
+
+    .player-content {
+      padding: var(--spacing-xl);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--spacing-lg);
+    }
+
+    #player-album-art {
+      position: relative;
+      width: 280px;
+      height: 280px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(1deg); }
+    }
+
+    #player-album-art::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      border-radius: var(--radius-md);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity var(--transition-base);
+    }
+
+    .player:hover #player-album-art::before {
+      opacity: 1;
+    }
+
+    #player-album-art img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform var(--transition-slow);
+    }
+
+    .player:hover #player-album-art img {
+      transform: scale(1.05);
+    }
+
+    /* ===================================
+       Player Display
+       =================================== */
+
+    .player-display {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+    }
+
+    .player-display-song-artist {
+      text-align: center;
+      min-height: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: var(--spacing-xs);
+    }
+
+    #player-song-title {
+      font-family: 'Clash Display', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+
+    #player-song-artist {
+      font-size: 1rem;
+      color: var(--color-text-secondary);
+      margin: 0;
+    }
+
+    /* ===================================
+       Player Buttons
+       =================================== */
+
+    .player-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--spacing-md);
+    }
+
+    .player-buttons button {
+      background: var(--color-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all var(--transition-base);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .player-buttons button::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      opacity: 0;
+      transition: opacity var(--transition-base);
+      border-radius: var(--radius-full);
+    }
+
+    .player-buttons button:hover {
+      transform: scale(1.1);
+      border-color: var(--color-primary);
+      box-shadow: 0 0 20px var(--color-primary-glow);
+    }
+
+    .player-buttons button:hover::before {
+      opacity: 0.2;
+    }
+
+    .player-buttons button:active {
+      transform: scale(0.95);
+    }
+
+    .player-buttons button svg {
+      position: relative;
+      z-index: 1;
+      fill: var(--color-text-primary);
+      transition: fill var(--transition-fast);
+    }
+
+    .player-buttons button:hover svg {
+      fill: var(--color-primary);
+    }
+
+    .player-buttons #play,
+    .player-buttons #pause {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+      border: none;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .player-buttons #play:hover,
+    .player-buttons #pause:hover {
+      box-shadow: 0 0 30px var(--color-primary-glow);
+      transform: scale(1.15);
+    }
+
+    .player-buttons #play svg,
+    .player-buttons #pause svg {
+      fill: var(--color-void);
+    }
+
+    .player-buttons #pause {
+      display: none;
+    }
+
+    .player-buttons #play.playing {
+      display: none;
+    }
+
+    .player-buttons #play.playing ~ #pause {
+      display: flex;
+    }
+
+    /* ===================================
+       Playlist Section
+       =================================== */
+
+    .playlist {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      backdrop-filter: blur(20px);
+      display: flex;
+      flex-direction: column;
+      max-height: 600px;
+    }
+
+    .playlist-bar {
+      background: linear-gradient(135deg, var(--color-elevated) 0%, var(--color-surface) 100%);
+      padding: var(--spacing-md);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--color-secondary);
+      flex-shrink: 0;
+    }
+
+    .playlist-title {
+      font-family: 'Clash Display', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin: 0;
+    }
+
+    /* ===================================
+       Playlist Songs
+       =================================== */
+
+    #playlist-songs {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    #playlist-songs::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    #playlist-songs::-webkit-scrollbar-track {
+      background: var(--color-surface);
+    }
+
+    #playlist-songs::-webkit-scrollbar-thumb {
+      background: var(--color-elevated);
+      border-radius: 4px;
+      transition: background var(--transition-base);
+    }
+
+    #playlist-songs::-webkit-scrollbar-thumb:hover {
+      background: var(--color-primary);
+    }
+
+    .playlist-song {
+      border-bottom: 1px solid var(--color-border);
+      transition: background var(--transition-fast);
+      animation: slideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .playlist-song:nth-child(1) { animation-delay: 0.05s; }
+    .playlist-song:nth-child(2) { animation-delay: 0.1s; }
+    .playlist-song:nth-child(3) { animation-delay: 0.15s; }
+    .playlist-song:nth-child(4) { animation-delay: 0.2s; }
+    .playlist-song:nth-child(5) { animation-delay: 0.25s; }
+    .playlist-song:nth-child(6) { animation-delay: 0.3s; }
+    .playlist-song:nth-child(7) { animation-delay: 0.35s; }
+    .playlist-song:nth-child(8) { animation-delay: 0.4s; }
+    .playlist-song:nth-child(9) { animation-delay: 0.45s; }
+    .playlist-song:nth-child(10) { animation-delay: 0.5s; }
+
+    .playlist-song:hover {
+      background: var(--color-elevated);
+    }
+
+    .playlist-song:last-child {
+      border-bottom: none;
+    }
+
+    .playlist-song-info {
+      background: none;
+      border: none;
+      width: 100%;
+      padding: var(--spacing-md);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: auto auto;
+      gap: var(--spacing-xs) var(--spacing-md);
+      cursor: pointer;
+      text-align: left;
+      transition: all var(--transition-fast);
+      position: relative;
+    }
+
+    .playlist-song-info::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+    }
+
+    .playlist-song:hover .playlist-song-info::before {
+      opacity: 1;
+    }
+
+    .playlist-song-title {
+      grid-column: 1;
+      grid-row: 1;
+      font-family: 'Clash Display', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      letter-spacing: -0.01em;
+      transition: color var(--transition-fast);
+    }
+
+    .playlist-song:hover .playlist-song-title {
+      color: var(--color-primary);
+    }
+
+    .playlist-song-artist {
+      grid-column: 1;
+      grid-row: 2;
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+    }
+
+    .playlist-song-duration {
+      grid-column: 2;
+      grid-row: 1 / -1;
+      display: flex;
+      align-items: center;
+      font-size: 0.875rem;
+      color: var(--color-text-dim);
+      font-weight: 700;
+      transition: color var(--transition-fast);
+    }
+
+    .playlist-song:hover .playlist-song-duration {
+      color: var(--color-secondary);
+    }
+
+    /* ===================================
+       Active/Playing State
+       =================================== */
+
+    .playlist-song.playing {
+      background: linear-gradient(90deg, transparent 0%, var(--color-primary-glow) 100%);
+    }
+
+    .playlist-song.playing .playlist-song-info::before {
+      opacity: 1;
+    }
+
+    .playlist-song.playing .playlist-song-title {
+      color: var(--color-primary);
+    }
+
+    .playlist-song.playing .playlist-song-duration {
+      color: var(--color-primary);
+    }
+
+    /* ===================================
+       Responsive Design
+       =================================== */
+
+    @media (max-width: 767px) {
+      .container {
+        gap: var(--spacing-md);
+      }
+      
+      .player-content {
+        padding: var(--spacing-lg);
+      }
+      
+      #player-album-art {
+        width: 240px;
+        height: 240px;
+      }
+      
+      #player-song-title {
+        font-size: 1.25rem;
+      }
+      
+      .player-buttons button {
+        width: 44px;
+        height: 44px;
+      }
+      
+      .player-buttons #play,
+      .player-buttons #pause {
+        width: 56px;
+        height: 56px;
+      }
+      
+      .playlist {
+        max-height: 400px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: var(--spacing-sm);
+      }
+      
+      .fcc-title {
+        font-size: 1.25rem;
+      }
+      
+      .playlist-title {
+        font-size: 1.125rem;
+      }
+      
+      #player-album-art {
+        width: 200px;
+        height: 200px;
+      }
+      
+      .player-buttons {
+        gap: var(--spacing-sm);
+      }
+    }
+
+    /* ===================================
+       Accessibility
+       =================================== */
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    button:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
