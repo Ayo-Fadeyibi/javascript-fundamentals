@@ -1,0 +1,166 @@
+/* ===================================
+   Drum Machine 
+   =================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&display=swap');
+
+:root {
+  /* Monochrome Palette */
+  --black: #000000;
+  --gray-dark: #1a1a1a;
+  --gray-mid: #404040;
+  --gray-light: #e0e0e0;
+  --white: #ffffff;
+  
+  /* Spacing */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* ===================================
+   Base Styles
+   =================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'IBM Plex Mono', monospace;
+  background: var(--white);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+}
+
+/* ===================================
+   Drum Machine Container
+   =================================== */
+
+#drum-machine {
+  background: var(--white);
+  border-radius: 8px;
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-xl);
+  max-width: 500px;
+  width: 100%;
+}
+
+/* ===================================
+   Pad Bank Grid
+   =================================== */
+
+#pad-bank {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* ===================================
+   Drum Pads
+   =================================== */
+
+.drum-pad {
+  aspect-ratio: 1;
+  background: var(--white);
+  border: 2px solid var(--black);
+  border-radius: 4px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--black);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: var(--shadow-md);
+}
+
+/* Hover State */
+.drum-pad:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* Active/Pressed State */
+.drum-pad:active,
+.drum-pad.active {
+  background: var(--black);
+  color: var(--white);
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ===================================
+   Display
+   =================================== */
+
+#display {
+  background: var(--white);
+  border: 2px solid var(--black);
+  border-radius: 4px;
+  padding: var(--spacing-lg);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--black);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+}
+
+/* Empty state */
+#display:empty::after {
+  content: '---';
+  opacity: 0.3;
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+
+@media (max-width: 600px) {
+  #drum-machine {
+    padding: var(--spacing-lg);
+  }
+
+  .drum-pad {
+    font-size: 1.5rem;
+  }
+
+  #display {
+    font-size: 1rem;
+    padding: var(--spacing-md);
+    min-height: 60px;
+  }
+}
+
+/* ===================================
+   Accessibility
+   =================================== */
+
+.drum-pad:focus-visible {
+  outline: 3px solid var(--black);
+  outline-offset: 2px;
+}
+
+/* Hide audio elements */
+audio {
+  display: none;
+}
