@@ -1,0 +1,4 @@
+body { font-family: Arial; background:#f2f2f2; display:flex; justify-content:center; padding-top:40px;}
+.container { background:white; padding:20px; border-radius:12px; width:400px;}
+.tags { margin-top:15px; display:flex; flex-wrap:wrap; gap:8px;}
+.tag { background:#137547; color:white; padding:6px 10px; border-radius:8px; cursor:pointer;}
