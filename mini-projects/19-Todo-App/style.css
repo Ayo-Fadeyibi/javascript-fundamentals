@@ -1,0 +1,127 @@
+:root {
+  --bg-color: #f9f9f9;
+  --container-bg: #ffffff;
+  --text-main: #333333;
+  --accent: #5a67d8; 
+  --danger: #e53e3e;
+  --border: #e2e8f0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  margin: 0;
+}
+
+main {
+  width: 90%;
+  max-width: 450px;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 300;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+}
+
+.todo-app {
+  background: var(--container-bg);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styling */
+.task-form {
+  background: #fff;
+  border-top: 2px solid var(--accent);
+  padding: 15px 0;
+  margin-top: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0 16px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.task-form-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #666;
+}
+
+/* Button Styling */
+.btn {
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.large-btn {
+  width: 100%;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  font-weight: 600;
+  padding: 12px;
+}
+
+.btn:hover {
+  filter: brightness(0.95);
+}
+
+/* Close Icon Styling */
+.close-task-form-btn {
+  background: none;
+  border: none;
+  float: right;
+  cursor: pointer;
+}
+
+.close-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Dialog (Native Modal) */
+dialog {
+  border: none;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.confirm-close-dialog-btn-container {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+#discard-btn {
+  background-color: var(--danger);
+  color: white;
+  border: none;
+}
