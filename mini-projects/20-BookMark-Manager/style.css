@@ -1,0 +1,111 @@
+/* Core Layout */
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: #f0f2f5;
+  color: #1c1e21;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  margin: 0;
+  padding: 40px 20px;
+}
+
+main {
+  background: #ffffff;
+  width: 100%;
+  max-width: 500px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  text-align: center;
+  margin-top: 0;
+}
+
+/* Sections */
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Dropdown & Form Controls */
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+select, input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+select:focus, input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+/* Button Grouping */
+#buttons, .section-footer {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Primary Actions */
+#view-category-button, #add-bookmark-button-form {
+  background-color: #3498db;
+  color: white;
+}
+
+/* Secondary Actions */
+#add-bookmark-button, #close-form-button, #close-list-button {
+  background-color: #ecf0f1;
+  color: #2c3e50;
+}
+
+/* Danger Action */
+#delete-bookmark-button {
+  background-color: #e74c3c;
+  color: white;
+}
+
+/* List Styling */
+#category-list {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 10px;
+  min-height: 50px;
+  border: 1px dashed #ccc;
+}
