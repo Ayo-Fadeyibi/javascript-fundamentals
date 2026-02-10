@@ -1,0 +1,124 @@
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --gray-light: #f2f2f2;
+  --gray-medium: #888888;
+  --border: #dddddd;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background-color: var(--white);
+  color: var(--black);
+  margin: 0;
+  line-height: 1.6;
+}
+
+header {
+  border-bottom: 1px solid var(--black);
+  padding: 2rem 0;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-weight: 900;
+  margin: 0;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Cart Controls */
+#cart-btn {
+  background: var(--black);
+  color: var(--white);
+  border: none;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  float: right;
+}
+
+#cart-container {
+  display: none;
+  clear: both;
+  background: var(--gray-light);
+  padding: 2rem;
+  margin: 2rem 0;
+  border: 1px solid var(--black);
+}
+
+/* Grid Layout */
+#dessert-card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 40px;
+  margin-top: 4rem;
+}
+
+/* Product Cards */
+.dessert-card {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 20px;
+  transition: opacity 0.3s;
+}
+
+.dessert-card:hover {
+  opacity: 0.7;
+}
+
+.dessert-card img {
+  width: 100%;
+  filter: grayscale(100%); /* Keeps photos on-theme */
+  margin-bottom: 15px;
+}
+
+/* Typography & Totals */
+#cart-container p {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  padding: 8px 0;
+  font-size: 0.9rem;
+}
+
+#total {
+  font-weight: 900;
+  font-size: 1.2rem;
+  border-bottom: 2px solid var(--black) !important;
+}
+
+/* Buttons */
+.btn {
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.add-to-cart-btn{
+  background-color: #000000;
+  color: white;
+  padding: 20px;
+  
+}
+
+#clear-cart-btn {
+  background: none;
+  border: 1px solid var(--black);
+  padding: 5px 10px;
+  font-size: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+#clear-cart-btn:hover {
+  background: var(--black);
+  color: var(--white);
+}
