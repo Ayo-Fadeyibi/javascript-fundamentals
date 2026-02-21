@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LifeTracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>LifeTracker</h1>
+
+    <!-- TASKS SECTION -->
+    <section>
+        <h2>Tasks</h2>
+
+        <input id="taskInput" type="text" placeholder="New task">
+        <button id="addTaskBtn">Add Task</button>
+
+        <ul id="taskList"></ul>
+    </section>
+
+    <!-- FINANCE SECTION -->
+    <section>
+        <h2>Finance</h2>
+
+        <p>Income: <span id="incomeStat">0</span></p>
+        <p>Expense: <span id="expenseStat">0</span></p>
+        <p>Balance: <span id="balanceStat">0</span></p>
+
+        <select id="typeInput">
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+        </select>
+
+        <input id="amountInput" type="number" placeholder="Amount">
+        <input id="categoryInput" type="text" placeholder="Category">
+
+        <button id="addTransactionBtn">Add Transaction</button>
+
+        <ul id="transactionList"></ul>
+    </section>
+
+    <!-- CRYPTO SECTION -->
+    <section>
+        <h2>Crypto Prices</h2>
+
+        <button id="loadCryptoBtn">Load Prices</button>
+        <div id="cryptoData"></div>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>
