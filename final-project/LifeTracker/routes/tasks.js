@@ -1,6 +1,8 @@
 const express = require('express');
-const router = express.Router();
+const taskRouter = express.Router();
 
-router.get('/tasks', (req, res) => {
+taskRouter.get('/tasks', (req, res) => {
     res.send('Tasks route');
 })
+
+export default taskRouter;

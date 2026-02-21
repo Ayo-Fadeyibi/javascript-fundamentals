@@ -1,6 +1,8 @@
 const express = require('express');
-const router = express.Router();
+const transactionRouter = express.Router();
 
-router.get('/', (req, res) => {
+transactionRouter.get('/', (req, res) => {
     res.send('Transactions route');
 })
+
+export default transactionRouter;

@@ -1,8 +1,8 @@
 const express = require('express');
-const router = express.Router();
+const cryptoRouter = express.Router();
 
-router.get('/crypto', (req, res) => {
+cryptoRouter.get('/crypto', (req, res) => {
     res.send('Crypto route');
 })
 
-export default router;
+export default cryptoRouter;
