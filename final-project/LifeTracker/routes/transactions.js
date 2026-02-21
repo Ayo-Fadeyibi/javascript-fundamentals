@@ -5,4 +5,4 @@ transactionRouter.get('/', (req, res) => {
     res.send('Transactions route');
 })
 
-export default transactionRouter;
+module.exports = transactionRouter;
