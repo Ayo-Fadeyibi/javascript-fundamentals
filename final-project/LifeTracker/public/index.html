@@ -7,10 +7,11 @@
 </head>
 <body>
 
-    <h1>LifeTracker</h1>
+    <h1>LIFETRACKER</h1>
 
+    <main class="mainContent">
     <!-- TASKS SECTION -->
-    <section>
+    <section class="tasks">
         <h2>Tasks</h2>
 
         <input id="taskInput" type="text" placeholder="New task">
@@ -20,7 +21,7 @@
     </section>
 
     <!-- FINANCE SECTION -->
-    <section>
+    <section class="finance">
         <h2>Finance</h2>
 
         <p>Income: <span id="incomeStat">0</span></p>
@@ -41,13 +42,14 @@
     </section>
 
     <!-- CRYPTO SECTION -->
-    <section>
+    <section class="crypto">
         <h2>Crypto Prices</h2>
 
         <button id="loadCryptoBtn">Load Prices</button>
         <div id="cryptoData"></div>
     </section>
 
+    </main>
     <script src="app.js"></script>
 </body>
 </html>

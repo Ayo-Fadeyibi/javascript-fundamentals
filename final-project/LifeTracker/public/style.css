@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Single:wght@100..900&family=Libertinus+Keyboard&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Playwrite+IT+Moderna:wght@100..400&family=Roboto:ital,wght@0,100..900;1,100..900&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    font-family: "Libertinus Keyboard", serif;
+    text-align: center;
+}
+
+.mainContent{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 30px;
+    font-family: "Winky Rough", Roboto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin: 40px;
+    padding: 10px;
+}
+
+.tasks{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+}
+
+.finance{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+}
+
+.crypto{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+}
+
+#addTaskBtn, #addTransactionBtn, #loadCryptoBtn{
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: black;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
