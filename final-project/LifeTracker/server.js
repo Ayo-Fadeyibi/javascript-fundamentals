@@ -13,4 +13,6 @@ app.use('/tasks', taskRouter);
 app.use('/transactions', transactionRouter);
 app.use('/crypto', cryptoRouter);
 
-app.listen(port);
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+});
