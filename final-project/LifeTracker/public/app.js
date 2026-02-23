@@ -28,7 +28,7 @@ async function loadTasks() {
         taskList.innerHTML += `
             <li>
             ${task.title}
-            <button class="delete-btn">Delete</button>
+            <button class="delete-btn" data-id="${task.id}">Delete</button>
             <input type="checkbox" class="checkbox"/>
             </li>
         `;
@@ -52,11 +52,36 @@ async function addTask() {
     await fetch("/tasks", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title })
+        body: JSON.stringify({ title})
     });
 
     taskInput.value = "";
     loadTasks();
 }
+
+const deleteBtns = document.querySelectorAll('.delete-btn');
+
+async function deleteTask (taskId) {
+   try{
+        const response = await fetch(`/tasks/${taskId}`, {
+            method: 'DELETE'
+        })
+
+        if(response.ok){
+            alert("Task deleted successfully");
+            loadTasks();
+        }else {
+            console.error('Deletion failed:', response.statusText);
+        }
+   }catch (error) {
+    console.error(error);
+   }
+}
+
+taskList.addEventListener("click", (event) => {
+    const childElement = event.target;
+    const taskId = childElement.getAttribute("data-id");
+    deleteTask(taskId);
+})
 
 addTaskButton.addEventListener('click', addTask);
