@@ -1,7 +1,7 @@
-const task = [];
-const transaction = [];
+const taskArray = [];
+const transactionArray = [];
 
 module.exports = {
-    task,
-    transaction
+    taskArray,
+    transactionArray
 }

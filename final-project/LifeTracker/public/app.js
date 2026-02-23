@@ -25,9 +25,13 @@ async function loadTasks() {
     const tasks = await response.json();
     taskList.innerHTML = '';
     tasks.forEach(task => {
-        const li = document.createElement('li');
-        li.textContent = task.title;
-        taskList.appendChild(li);
+        taskList.innerHTML += `
+            <li>
+            ${task.title}
+            <button class="delete-btn">Delete</button>
+            <input type="checkbox" class="checkbox"/>
+            </li>
+        `;
     });
 }
 
@@ -36,14 +40,15 @@ async function loadTransactions() {
     const transactions = await response.json();
     transactionList.innerHTML = '';
     transactions.forEach(transaction => {
-        const li = document.createElement('li');
-        li.textContent = transaction.description;
-        transactionList.appendChild(li);
+        transactionList.innerHTML += `
+            <li>${transaction.description}</li>
+        `;
     })
 }
 
 async function addTask() {
     const title = taskInput.value;
+    if(!title) {return;}
     await fetch("/tasks", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
