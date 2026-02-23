@@ -8,7 +8,6 @@ const balanceStat = document.getElementById('balanceStat');
 
 const optionSelect = document.getElementById('typeInput');
 const amountInput = document.getElementById('amountInput');
-const categoryInput = document.getElementById('categoryInput');
 const addTransactionButton = document.getElementById('addTransactionBtn');
 const transactionList = document.getElementById('transactionList');
 
@@ -17,7 +16,7 @@ const cryptoList = document.getElementById('cryptoData');
 
 window.addEventListener('DOMContentLoaded', () => {
     loadTasks();
-    loadTransactions();
+    updateStats();
 });
 
 async function loadTasks() {
@@ -33,17 +32,6 @@ async function loadTasks() {
             </li>
         `;
     });
-}
-
-async function loadTransactions() {
-    const response = await fetch('/transactions');
-    const transactions = await response.json();
-    transactionList.innerHTML = '';
-    transactions.forEach(transaction => {
-        transactionList.innerHTML += `
-            <li>${transaction.description}</li>
-        `;
-    })
 }
 
 async function addTask() {
@@ -85,3 +73,30 @@ taskList.addEventListener("click", (event) => {
 })
 
 addTaskButton.addEventListener('click', addTask);
+
+async function updateStats() {
+   const response = await fetch('/transactions');
+   const transaction = await response.json();
+   const {totalIncome, totalExpense, balance} = transaction;
+
+   incomeStat.textContent = totalIncome;
+   expenseStat.textContent = totalExpense;
+   balanceStat.textContent = balance;
+}
+
+async function addTransaction() {
+    const transactionType = optionSelect.value;
+    const amountValue = amountInput.value;
+
+    if(!transactionType || !amountValue) {return;}
+    await fetch("/transactions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: transactionType, amount: amountValue})
+    }); 
+    amountInput.value = "";
+
+    updateStats();
+}
+
+addTransactionButton.addEventListener("click", addTransaction)
