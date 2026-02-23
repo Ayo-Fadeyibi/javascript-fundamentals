@@ -31,6 +31,14 @@ h1{
     background-color: #f0f0f0;
 }
 
+#taskInput{
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 16px;
+}
+
 .finance{
     display: flex;
     flex-direction: column;
@@ -59,4 +67,32 @@ h1{
     font-weight: bold;
     color: white;
     cursor: pointer;
+}
+
+#taskList button{
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+
+#taskList{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#taskList li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+#taskList input{
+  cursor: pointer;
+
 }
