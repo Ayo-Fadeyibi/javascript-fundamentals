@@ -7,11 +7,11 @@ app.use(express.static("public"));
 
 const taskRouter = require('./routes/tasks');
 const transactionRouter = require('./routes/transactions');
-const cryptoRouter = require('./routes/crypto');
+const stockRouter = require('./routes/stock');
 
 app.use('/tasks', taskRouter);
 app.use('/transactions', transactionRouter);
-app.use('/crypto', cryptoRouter);
+app.use('/stock', stockRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);

@@ -11,8 +11,8 @@ const amountInput = document.getElementById('amountInput');
 const addTransactionButton = document.getElementById('addTransactionBtn');
 const transactionList = document.getElementById('transactionList');
 
-const loadCryptoButton = document.getElementById('loadCryptoBtn');
-const cryptoList = document.getElementById('cryptoData');
+const loadStockButton = document.getElementById('loadStockBtn');
+const stockList = document.getElementById('stockData');
 
 window.addEventListener('DOMContentLoaded', () => {
     loadTasks();
@@ -99,4 +99,23 @@ async function addTransaction() {
     updateStats();
 }
 
-addTransactionButton.addEventListener("click", addTransaction)
+addTransactionButton.addEventListener("click", addTransaction);
+
+async function loadStockData() {
+    const response = await fetch("http://localhost:3000/stock");
+    const stockData = await response.json();
+
+    stockList.innerHTML = '';
+
+    stockData.prices.forEach(day => {
+        stockList.innerHTML += `
+            <li>
+                Date: ${day.date} |
+                Open: ${day.open} |
+                Close: ${day.close} |
+                Volume: ${day.volume}
+            </li>
+        `;
+    });
+}
+loadStockButton.addEventListener('click', loadStockData);
