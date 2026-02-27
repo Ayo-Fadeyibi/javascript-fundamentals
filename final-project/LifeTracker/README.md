@@ -38,16 +38,16 @@ No third-party HTTP clients were used — the project leverages Node’s built-i
 
 LifeTracker/
 │
-├── server.js           # Application entry point
+├── server.js          
 ├── routes/
-│   ├── tasks.js        # Task routes
-│   ├── transactions.js # Transaction routes
-│   └── stock.js        # Stock API integration
+│   ├── tasks.js       
+│   ├── transactions.js 
+│   └── stock.js        
 │
 ├── data/
-│   └── store.js        # In-memory storage
+│   └── store.js       
 │
-└── public/             # Static frontend files
+└── public/             
 
 ---
 
